@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-black text-white;
+  font-family: 'Inter', sans-serif;
+}
+
+* {
+  @apply transition-colors duration-200;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500;
+}
+
+/* Smooth fade for sections */
+section {
+  @apply transition-opacity duration-500 ease-in-out;
+}
+
+/* Smooth hover effects for interactive elements */
+button, a {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+/* Particle animation */
+.particle {
+  @apply absolute pointer-events-none;
+  transition: transform 0.1s linear;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-500/30 rounded-full hover:bg-purple-500/50 transition-colors;
+}
+
+/* Smooth reveal animations */
+.reveal {
+  @apply opacity-0 transition-all duration-700 ease-out;
+  transform: translateY(20px);
+}
+
+.reveal.active {
+  @apply opacity-100;
+  transform: translateY(0);
+}
+
+/* Card hover effects */
+.card {
+  @apply transition-transform duration-300 ease-out hover:scale-105;
+}
+
+.gradient-underline {
+  @apply border-b-2 border-transparent;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(to right, #7F00FF, #E100FF);
+  background-size: 100% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+}
+
+/* Gradient border animation */
+.gradient-border {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    background: linear-gradient(to right, #7F00FF, #E100FF, #FF7F00);
+    border-radius: inherit;
+    animation: borderRotate 4s linear infinite;
+  }
+}
+
+@keyframes borderRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
