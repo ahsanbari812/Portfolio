@@ -52,7 +52,7 @@ const Particles: React.FC = () => {
     });
 
     const initParticles = () => {
-      particles = Array.from({ length: 100 }, createParticle);
+      particles = Array.from({ length: 50 }, createParticle); // Reduced from 100 to 50
     };
 
     const updateParticle = (particle: Particle) => {
@@ -99,8 +99,8 @@ const Particles: React.FC = () => {
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 120) {
-            const opacity = (1 - distance / 120) * 0.3;
+          if (distance < 80) { // Reduced connection distance from 120 to 80
+            const opacity = (1 - distance / 80) * 0.2; // Reduced opacity and updated calculation
             ctx.beginPath();
             const gradient = ctx.createLinearGradient(
               particles[i].x, particles[i].y,
@@ -124,22 +124,36 @@ const Particles: React.FC = () => {
       }
     };
 
+    let frameCount = 0;
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      frameCount++;
+      
+      // Only update every other frame for better performance
+      if (frameCount % 2 === 0) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particles.forEach((particle) => {
-        updateParticle(particle);
-        drawParticle(particle);
-      });
+        particles.forEach((particle) => {
+          updateParticle(particle);
+          drawParticle(particle);
+        });
 
-      connectParticles();
+        connectParticles();
+      }
+      
       animationFrameId = requestAnimationFrame(animate);
     };
 
+    let mouseMoveThrottle: number;
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      mouseX = e.clientX - rect.left;
-      mouseY = e.clientY - rect.top;
+      // Throttle mouse move events to reduce conflicts
+      if (mouseMoveThrottle) return;
+      
+      mouseMoveThrottle = requestAnimationFrame(() => {
+        const rect = canvas.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+        mouseMoveThrottle = 0;
+      });
     };
 
     resize();
@@ -151,6 +165,9 @@ const Particles: React.FC = () => {
     return () => {
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', handleMouseMove);
+      if (mouseMoveThrottle) {
+        cancelAnimationFrame(mouseMoveThrottle);
+      }
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

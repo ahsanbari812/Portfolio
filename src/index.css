@@ -2,26 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom utilities for advanced components */
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+  }
+  
+  .mix-blend-difference {
+    mix-blend-mode: difference;
+  }
+}
+
+/* Performance optimizations */
+* {
+  will-change: auto;
+}
+
+/* Optimize animations and transforms */
+.motion-safe\:will-change-transform {
+  will-change: transform;
+}
+
+.motion-safe\:will-change-opacity {
+  will-change: opacity;
+}
+
+/* Reduce motion for better performance */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+
+
+
+/* Hide default cursor when custom cursor is active (desktop only) */
+@media (min-width: 769px) {
+  body {
+    cursor: none;
+  }
+}
+
 :root {
   color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   @apply bg-black text-white;
   font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
 
 * {
   @apply transition-colors duration-200;
 }
 
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500;
-}
+
 
 /* Smooth fade for sections */
 section {
@@ -52,49 +108,3 @@ button, a {
   @apply bg-purple-500/30 rounded-full hover:bg-purple-500/50 transition-colors;
 }
 
-/* Smooth reveal animations */
-.reveal {
-  @apply opacity-0 transition-all duration-700 ease-out;
-  transform: translateY(20px);
-}
-
-.reveal.active {
-  @apply opacity-100;
-  transform: translateY(0);
-}
-
-/* Card hover effects */
-.card {
-  @apply transition-transform duration-300 ease-out hover:scale-105;
-}
-
-.gradient-underline {
-  @apply border-b-2 border-transparent;
-  background-image: linear-gradient(transparent, transparent), linear-gradient(to right, #7F00FF, #E100FF);
-  background-size: 100% 2px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-}
-
-/* Gradient border animation */
-.gradient-border {
-  position: relative;
-  &::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    z-index: -1;
-    background: linear-gradient(to right, #7F00FF, #E100FF, #FF7F00);
-    border-radius: inherit;
-    animation: borderRotate 4s linear infinite;
-  }
-}
-
-@keyframes borderRotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

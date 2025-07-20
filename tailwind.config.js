@@ -5,7 +5,6 @@ export default {
     extend: {
       colors: {
         background: '#0B0B0F',
-        'card-bg': '#16161a',
         'button-bg': '#1A1A1D',
       },
       fontFamily: {
