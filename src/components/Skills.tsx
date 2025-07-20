@@ -6,15 +6,15 @@ const Skills: React.FC = () => {
   const skills = [
     { name: 'React & Next.js', icon: <Code className="w-6 h-6" /> },
     { name: 'TypeScript', icon: <Code className="w-6 h-6" /> },
-    { name: 'React Native', icon: <Smartphone className="w-6 h-6" /> },
-    { name: 'Flutter', icon: <Smartphone className="w-6 h-6" /> },
-    { name: 'Node.js', icon: <Server className="w-6 h-6" /> },
+    { name: 'JavaScript (ES6+)', icon: <Code className="w-6 h-6" /> },
     { name: 'TailwindCSS', icon: <Palette className="w-6 h-6" /> },
-    { name: 'MongoDB', icon: <Database className="w-6 h-6" /> },
-    { name: 'PostgreSQL', icon: <Database className="w-6 h-6" /> },
-    { name: 'Docker', icon: <Server className="w-6 h-6" /> },
-    { name: 'Git', icon: <GitBranch className="w-6 h-6" /> },
-    { name: 'CI/CD', icon: <GitBranch className="w-6 h-6" /> },
+    { name: 'CSS3 & SASS', icon: <Palette className="w-6 h-6" /> },
+    { name: 'HTML5', icon: <Layout className="w-6 h-6" /> },
+    { name: 'Redux & Zustand', icon: <Code className="w-6 h-6" /> },
+    { name: 'Framer Motion', icon: <Sparkles className="w-6 h-6" /> },
+    { name: 'Vite & Webpack', icon: <Code className="w-6 h-6" /> },
+    { name: 'Git & GitHub', icon: <GitBranch className="w-6 h-6" /> },
+    { name: 'Responsive Design', icon: <Layout className="w-6 h-6" /> },
     { name: 'UI/UX Design', icon: <Layout className="w-6 h-6" /> },
   ];
 
@@ -34,7 +34,7 @@ const Skills: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4">
+    <div className="w-full max-w-7xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -42,14 +42,14 @@ const Skills: React.FC = () => {
         viewport={{ once: true, margin: "-100px" }}
         className="text-center mb-16"
       >
-        <h2 className="text-5xl md:text-6xl font-bold mb-4 gradient-text">Technical Arsenal</h2>
-        <p className="text-xl text-gray-300">
-          A comprehensive toolkit for building modern web and mobile applications
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 gradient-text">Frontend Skills</h2>
+        <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto">
+          Modern web technologies and tools for creating exceptional user experiences
         </p>
       </motion.div>
 
       <motion.div 
-        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 gap-6 lg:gap-8"
         variants={container}
         initial="hidden"
         whileInView="show"
@@ -64,11 +64,11 @@ const Skills: React.FC = () => {
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#7F00FF] via-[#E100FF] to-[#FF7F00] rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-xl"/>
-            <div className="relative bg-card-bg p-6 rounded-lg flex flex-col items-center group-hover:bg-card-bg/80 transition-all duration-300">
-              <div className="mb-3 text-gray-200">
+            <div className="relative bg-card-bg p-6 lg:p-8 rounded-lg flex flex-col items-center group-hover:bg-card-bg/80 transition-all duration-300">
+              <div className="mb-4 text-gray-200">
                 {skill.icon}
               </div>
-              <span className="text-sm text-gray-200 text-center">{skill.name}</span>
+              <span className="text-xs lg:text-sm text-gray-200 text-center font-medium">{skill.name}</span>
             </div>
           </motion.div>
         ))}

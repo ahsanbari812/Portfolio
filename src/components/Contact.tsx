@@ -4,7 +4,7 @@ import { Mail, MapPin, Github, Linkedin, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-8 md:py-0">
+    <div className="w-full max-w-6xl mx-auto py-8 md:py-0">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -12,15 +12,15 @@ const Contact: React.FC = () => {
         viewport={{ once: true }}
         className="text-center mb-8 md:mb-12"
       >
-        <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-3 md:mb-4">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-6">
           Get In Touch
         </h2>
-        <p className="text-base md:text-lg text-gray-400 px-2">
-          Have a project in mind or want to discuss Frontend solutions? I'd love to hear from you.
+        <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+          Have a project in mind or want to discuss frontend solutions? I'd love to hear from you.
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
         {/* Contact Form */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -32,36 +32,36 @@ const Contact: React.FC = () => {
           {/* Glow effect */}
           <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-orange-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
           
-          <div className="relative bg-zinc-900/90 p-6 md:p-8 rounded-2xl border border-zinc-800/50 backdrop-blur-sm">
-            <form className="space-y-4 md:space-y-6">
+          <div className="relative bg-zinc-900/90 p-8 lg:p-10 rounded-2xl border border-zinc-800/50 backdrop-blur-sm">
+            <form className="space-y-6">
               <div>
-                <label className="text-gray-300 mb-1.5 md:mb-2 block text-sm font-medium">Name</label>
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  className="w-full bg-zinc-800/50 text-gray-300 p-2.5 md:p-3 rounded-lg border border-zinc-700/50 focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent transition-all text-sm md:text-base"
-                />
+                <label className="text-gray-300 mb-1.5 md:mb-2 block text-xs font-medium">Name</label>
+                                  <input
+                    type="text"
+                    placeholder="Your name"
+                    className="w-full bg-zinc-800/50 text-gray-300 p-2.5 md:p-3 rounded-lg border border-zinc-700/50 focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent transition-all text-sm"
+                  />
               </div>
               <div>
-                <label className="text-gray-300 mb-1.5 md:mb-2 block text-sm font-medium">Email</label>
-                <input
-                  type="email"
-                  placeholder="your.email@example.com"
-                  className="w-full bg-zinc-800/50 text-gray-300 p-2.5 md:p-3 rounded-lg border border-zinc-700/50 focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent transition-all text-sm md:text-base"
-                />
+                <label className="text-gray-300 mb-1.5 md:mb-2 block text-xs font-medium">Email</label>
+                                  <input
+                    type="email"
+                    placeholder="your.email@example.com"
+                    className="w-full bg-zinc-800/50 text-gray-300 p-2.5 md:p-3 rounded-lg border border-zinc-700/50 focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent transition-all text-sm"
+                  />
               </div>
               <div>
-                <label className="text-gray-300 mb-1.5 md:mb-2 block text-sm font-medium">Message</label>
-                <textarea
-                  rows={5}
-                  placeholder="Tell me about your project or inquiry..."
-                  className="w-full bg-zinc-800/50 text-gray-300 p-2.5 md:p-3 rounded-lg border border-zinc-700/50 focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent transition-all resize-none text-sm md:text-base"
-                ></textarea>
+                <label className="text-gray-300 mb-1.5 md:mb-2 block text-xs font-medium">Message</label>
+                                  <textarea
+                    rows={5}
+                    placeholder="Tell me about your project or inquiry..."
+                    className="w-full bg-zinc-800/50 text-gray-300 p-2.5 md:p-3 rounded-lg border border-zinc-700/50 focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent transition-all resize-none text-sm"
+                  ></textarea>
               </div>
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white py-2.5 md:py-3 px-4 md:px-6 rounded-lg font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity text-sm md:text-base"
+                className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white py-2.5 md:py-3 px-4 md:px-6 rounded-lg font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity text-sm"
               >
                 Send Message
                 <Send className="w-4 h-4" />
@@ -82,16 +82,16 @@ const Contact: React.FC = () => {
             {/* Glow effect */}
             <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-orange-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
             
-            <div className="relative bg-zinc-900/90 p-6 md:p-8 rounded-2xl border border-zinc-800/50 backdrop-blur-sm">
-              <div className="flex items-start gap-3 md:gap-4">
+            <div className="relative bg-zinc-900/90 p-8 lg:p-10 rounded-2xl border border-zinc-800/50 backdrop-blur-sm">
+              <div className="flex items-start gap-4">
                 <div className="p-2.5 md:p-3 rounded-xl bg-zinc-800/50">
                   <Mail className="w-5 h-5 md:w-6 md:h-6 text-purple-500" />
                 </div>
                 <div>
-                  <h3 className="text-lg md:text-xl font-semibold text-white mb-1.5 md:mb-2">Email</h3>
+                  <h3 className="text-base font-semibold text-white mb-1.5 md:mb-2">Email</h3>
                   <a 
                     href="mailto:muhammadahsan0812@gmail.com"
-                    className="text-gray-400 hover:text-purple-400 transition-colors text-sm md:text-base break-all"
+                    className="text-gray-400 hover:text-purple-400 transition-colors text-sm break-all"
                   >
                     muhammadahsan0812@gmail.com
                   </a>
@@ -110,8 +110,8 @@ const Contact: React.FC = () => {
             {/* Glow effect */}
             <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-orange-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
             
-            <div className="relative bg-zinc-900/90 p-6 md:p-8 rounded-2xl border border-zinc-800/50 backdrop-blur-sm">
-              <h3 className="text-lg md:text-xl font-semibold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-4 md:mb-6">
+            <div className="relative bg-zinc-900/90 p-8 lg:p-10 rounded-2xl border border-zinc-800/50 backdrop-blur-sm">
+              <h3 className="text-base font-semibold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-6">
                 Connect With Me
               </h3>
               <div className="flex gap-3 md:gap-4">

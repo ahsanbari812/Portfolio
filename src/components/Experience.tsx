@@ -8,25 +8,25 @@ const Experience: React.FC = () => {
       role: "Frontend Developer Intern",
       company: "CodeAlpha",
       period: "May 2024 - June 2024",
-      description: "Worked with the frontend team to build and optimize UI components for a client-focused landing page.",
+      description: "Collaborated with the frontend team to develop and optimize responsive UI components and user interfaces.",
       achievements: [
-        "Improved site performance by 30% by refactoring components.",
-        "Helped design reusable UI elements to streamline future development.",
-        "Implemented reusable components for buttons, modals, and cards, improving overall development efficiency."
+        "Improved website performance by 30% through component optimization and code splitting.",
+        "Built reusable React components library improving development efficiency by 40%.",
+        "Implemented responsive design principles ensuring cross-browser compatibility."
       ],
-      technologies: ["React.js", "Tailwind CSS", "GIT", "Figma", "Agile"]
+      technologies: ["React.js", "TypeScript", "Tailwind CSS", "Git", "Figma"]
     },
     {
-      role: "Freelance Web Developer",
+      role: "Frontend Developer",
       company: "Self-Employed",
       period: "Jan 2025 - Present",
-      description: "Designed and built websites for small businesses, handling the full development lifecycle from planning to deployment.",
+      description: "Creating modern, responsive web applications with focus on user experience and performance optimization.",
       achievements: [
-        "Developed responsive web applications using React and Next.js",
-        "Launched 3 responsive websites with custom CMS integrations.",
-        "Increased clients' SEO scores and mobile responsiveness."
+        "Developed 5+ responsive web applications using React, TypeScript, and modern CSS.",
+        "Achieved 95+ Lighthouse performance scores through optimization techniques.",
+        "Implemented accessibility standards (WCAG 2.1) across all projects."
       ],
-      technologies: ["React", "Next.js", "Node.js", "Google Analytics"]
+      technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"]
     }
   ];
 
@@ -59,7 +59,7 @@ const Experience: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4">
+    <div className="w-full max-w-6xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -67,10 +67,10 @@ const Experience: React.FC = () => {
         viewport={{ once: true }}
         className="text-center mb-16"
       >
-        <h2 className="text-6xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-4">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-6">
           Experience
         </h2>
-        <p className="text-gray-400 text-lg">
+        <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
           My professional journey and achievements
         </p>
       </motion.div>
@@ -88,7 +88,7 @@ const Experience: React.FC = () => {
         </div>
 
         {/* Experience cards */}
-        <div className="space-y-12">
+        <div className="space-y-16">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
@@ -111,7 +111,7 @@ const Experience: React.FC = () => {
                 {/* Glow effect */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-orange-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                 
-                <div className="relative bg-zinc-900/90 p-8 rounded-2xl border border-zinc-800/50 backdrop-blur-sm">
+                <div className="relative bg-zinc-900/90 p-8 lg:p-10 rounded-2xl border border-zinc-800/50 backdrop-blur-sm">
                   {/* Icon and title */}
                   <div className="flex items-start gap-4 mb-6">
                     <motion.div
@@ -126,7 +126,7 @@ const Experience: React.FC = () => {
                       )}
                     </motion.div>
                     <div>
-                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
+                      <h3 className="text-xl font-semibold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
                         {exp.role}
                       </h3>
                       <p className="text-purple-400 font-medium">{exp.company}</p>
@@ -135,7 +135,7 @@ const Experience: React.FC = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-300 mb-6 leading-relaxed">{exp.description}</p>
+                  <p className="text-gray-300 mb-6 leading-relaxed text-sm">{exp.description}</p>
 
                   {/* Achievements */}
                   <ul className="space-y-3 mb-6">
@@ -147,7 +147,7 @@ const Experience: React.FC = () => {
                         transition={{ type: "spring", stiffness: 300, damping: 10 }}
                       >
                         <ChevronRight className="w-5 h-5 mt-0.5 text-purple-500 group-hover/item:text-pink-500 transition-colors" />
-                        <span className="group-hover/item:text-gray-300 transition-colors">
+                        <span className="group-hover/item:text-gray-300 transition-colors text-sm">
                           {achievement}
                         </span>
                       </motion.li>
@@ -160,7 +160,7 @@ const Experience: React.FC = () => {
                       <motion.span
                         key={i}
                         whileHover={{ scale: 1.05, y: -2 }}
-                        className="px-3 py-1 text-sm rounded-md bg-zinc-800/50 text-purple-400 hover:text-pink-400 hover:bg-zinc-800/80 transition-colors cursor-default"
+                        className="px-3 py-1 text-xs rounded-md bg-zinc-800/50 text-purple-400 hover:text-pink-400 hover:bg-zinc-800/80 transition-colors cursor-default"
                       >
                         {tech}
                       </motion.span>

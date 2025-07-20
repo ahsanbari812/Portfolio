@@ -48,11 +48,11 @@ const Navbar: React.FC = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
           <motion.a
             href="#home"
-            className="text-lg font-semibold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent"
+            className="text-lg font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent"
             onClick={(e) => {
               e.preventDefault();
               document.querySelector('#home')?.scrollIntoView({
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
             Ahsan
           </motion.a>
 
-          <ul className="flex space-x-8">
+          <ul className="flex space-x-8 lg:space-x-10">
             {navLinks.map(({ name, href }) => (
               <motion.li key={name}>
                 <a
@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
                     });
                     setActiveLink(href.substring(1));
                   }}
-                  className={`text-sm relative py-2 px-1 transition-colors hover:text-white ${
+                  className={`text-sm font-medium relative py-2 px-1 transition-colors hover:text-white ${
                     activeLink === href.substring(1) ? 'text-white' : 'text-gray-400'
                   }`}
                 >

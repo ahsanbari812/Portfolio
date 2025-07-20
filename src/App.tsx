@@ -37,25 +37,25 @@ const App: React.FC = () => {
       >
         <Navbar />
         
-        <main className="container mx-auto px-4 py-20">
+        <main className="w-full">
           <Suspense fallback={<LoadingFallback />}>
-            <section id="home" className="min-h-screen flex items-center justify-center py-20 sm:py-28">
+            <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-16">
               <Hero />
             </section>
             
-            <section id="experience" className="min-h-screen flex items-center justify-center py-20 sm:py-28">
+            <section id="experience" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
               <Experience />
             </section>
             
-            <section id="skills" className="min-h-screen flex items-center justify-center py-20 sm:py-28">
+            <section id="skills" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
               <Skills />
             </section>
             
-            <section id="projects" className="min-h-screen flex items-center justify-center py-20 sm:py-28">
+            <section id="projects" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
               <Projects />
             </section>
             
-            <section id="contact" className="min-h-screen flex items-center justify-center py-20 sm:py-28">
+            <section id="contact" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
               <Contact />
             </section>
           </Suspense>

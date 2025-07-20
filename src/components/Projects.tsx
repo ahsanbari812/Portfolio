@@ -6,33 +6,33 @@ const Projects: React.FC = () => {
   const projects = [
     {
       title: "AI Resume Builder",
-      description: "A full-stack e-commerce platform with features like real-time inventory management, secure payment processing, and a responsive admin dashboard. Built with modern web technologies for optimal performance.",
-      technologies: ["React.js", "JavaScript", "Gemini API"],
+      description: "A modern web application that helps users create professional resumes using AI. Features include real-time preview, multiple templates, and export functionality. Built with React and TypeScript for optimal performance.",
+      technologies: ["React.js", "TypeScript", "Tailwind CSS", "Gemini API"],
       icon: Brain,
       githubLink: "https://github.com/your-github/ai-resume-builder",
       projectLink: "https://ai-resume-builder-fast.vercel.app/"
     },
     {
       title: "Portfolio Website",
-      description: "A modern, responsive portfolio website built with React and Framer Motion. Features smooth animations, dynamic content loading, and optimized performance scores.",
-      technologies: ["React", "Framer Motion", "Tailwind CSS", "TypeScript", "Vite"],
+      description: "A modern, responsive portfolio website showcasing frontend development skills. Features smooth animations, dynamic content loading, and optimized performance with 95+ Lighthouse scores.",
+      technologies: ["React", "TypeScript", "Framer Motion", "Tailwind CSS", "Vite"],
       icon: Globe,
       githubLink: "https://github.com/ahsanbari812/Portfolio",
-      projectLink: "https://ahsanportfolio-phi.vercel.app/"
+      projectLink: ""
     },
     {
-      title: "Fitness Tracking App",
-      description: "A cross-platform mobile application for tracking workouts, nutrition, and fitness goals. Features include custom workout plans, progress tracking, and social sharing capabilities.",
-      technologies: ["React Native", "Redux", "Node.js", "MongoDB", "Firebase"],
-      icon: Smartphone,
+      title: "E-commerce Dashboard",
+      description: "A responsive admin dashboard for e-commerce management with interactive charts, product management, and real-time analytics. Built with modern React patterns and optimized for performance.",
+      technologies: ["React", "TypeScript", "Chart.js", "Tailwind CSS", "Redux"],
+      icon: Layout,
       githubLink: "#",
       projectLink: "#"
     },
     {
-      title: "Task Management System",
-      description: "A collaborative task management platform with real-time updates, team collaboration features, and automated workflow capabilities. Includes drag-and-drop interfaces and detailed analytics.",
-      technologies: ["Vue.js", "Express", "Socket.io", "MySQL", "Docker"],
-      icon: Layout,
+      title: "Weather App",
+      description: "A beautiful weather application with location-based forecasts, interactive maps, and animated weather icons. Features responsive design and offline functionality.",
+      technologies: ["React", "JavaScript", "CSS3", "Weather API", "Local Storage"],
+      icon: Globe,
       githubLink: "#",
       projectLink: "#"
     }
@@ -78,20 +78,20 @@ const Projects: React.FC = () => {
             </div>
           </div>
 
-          <h3 className="text-xl font-semibold text-white mb-3">
+          <h3 className="text-lg font-semibold text-white mb-3">
             {project.title}
           </h3>
 
-          <p className="text-sm text-gray-400 mb-6 min-h-[80px] leading-relaxed">
+          <p className="text-xs text-gray-400 mb-6 min-h-[80px] leading-relaxed">
             {project.description}
           </p>
 
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech: string, i: number) => (
-              <span
-                key={i}
-                className="px-2.5 py-1 text-xs rounded-md bg-zinc-800/50 text-purple-400"
-              >
+                              <span
+                  key={i}
+                  className="px-2 py-1 text-xs rounded-md bg-zinc-800/50 text-purple-400"
+                >
                 {tech}
               </span>
             ))}
@@ -104,8 +104,8 @@ const Projects: React.FC = () => {
   return (
     <div className="w-full">
       {/* Projects Section */}
-      <section className="py-20">
-        <div className="w-full max-w-6xl mx-auto px-4">
+      <section className="py-16 sm:py-20">
+        <div className="w-full max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,23 +113,23 @@ const Projects: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-6">
               Projects
             </h2>
-            <p className="text-lg text-gray-400">
-              Innovative web and mobile applications I've crafted
+            <p className="text-lg md:text-xl text-gray-400 max-w-4xl mx-auto">
+              Innovative web applications I've crafted with modern frontend technologies
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
             {projects.map((project, index) => renderProjectCard(project, index))}
           </div>
         </div>
       </section>
 
       {/* Why Choose Me Section */}
-      <section className="py-20 bg-zinc-950/50">
-        <div className="w-full max-w-6xl mx-auto px-4">
+      <section className="py-16 sm:py-20 bg-zinc-950/50">
+        <div className="w-full max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -137,15 +137,15 @@ const Projects: React.FC = () => {
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-6">
               Why Choose Me?
             </h2>
-            <p className="text-base text-gray-400">
-              Delivering exceptional web and mobile solutions with modern technologies and best practices
+            <p className="text-lg md:text-xl text-gray-400 max-w-4xl mx-auto">
+              Creating exceptional user experiences with modern frontend technologies and best practices
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -158,11 +158,11 @@ const Projects: React.FC = () => {
                 <div className="mb-6 inline-block p-3 rounded-xl bg-zinc-800/50">
                   <Code className="w-5 h-5 text-purple-500" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3">
-                  Full-Stack Expertise
+                <h3 className="text-base font-semibold text-white mb-3">
+                  Frontend Expertise
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
-                  Proficient in both frontend and backend development, creating seamless and scalable applications from start to finish.
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  Specialized in React, TypeScript, and modern CSS frameworks, creating pixel-perfect and responsive user interfaces.
                 </p>
               </div>
             </motion.div>
@@ -179,11 +179,11 @@ const Projects: React.FC = () => {
                 <div className="mb-6 inline-block p-3 rounded-xl bg-zinc-800/50">
                   <Smartphone className="w-5 h-5 text-blue-400" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3">
-                  Cross-Platform Development
+                <h3 className="text-base font-semibold text-white mb-3">
+                  Responsive Design
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
-                  Experienced in building responsive web applications and native mobile apps that work seamlessly across all devices.
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  Creating mobile-first, responsive web applications that provide exceptional user experiences across all devices and screen sizes.
                 </p>
               </div>
             </motion.div>
@@ -200,10 +200,10 @@ const Projects: React.FC = () => {
                 <div className="mb-6 inline-block p-3 rounded-xl bg-zinc-800/50">
                   <Zap className="w-5 h-5 text-pink-500" />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3">
+                <h3 className="text-base font-semibold text-white mb-3">
                   Performance Focused
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">
+                <p className="text-xs text-gray-400 leading-relaxed">
                   Dedicated to creating fast, optimized applications with clean code and excellent user experience.
                 </p>
               </div>

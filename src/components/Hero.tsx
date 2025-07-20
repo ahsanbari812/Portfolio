@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const roles = ['Web Dev', 'App Dev'];
+  const roles = ['Frontend Developer', 'UI/UX Designer', 'React Specialist'];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -40,14 +40,14 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center max-w-4xl mx-auto px-4 space-y-8">
+    <div className="flex flex-col items-center justify-center w-full max-w-5xl mx-auto space-y-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         className="text-center space-y-6"
       >
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
           >
             I'm Ahsan Bari
           </motion.div>
-          <div className="h-20 relative flex items-center justify-center overflow-hidden">
+          <div className="h-24 relative flex items-center justify-center overflow-hidden">
             <AnimatePresence initial={false} mode="wait" custom={currentIndex}>
               <motion.div
                 key={roles[currentIndex]}
@@ -96,14 +96,14 @@ const Hero: React.FC = () => {
         </h1>
 
         <motion.p
-          className="text-base md:text-lg text-gray-400 mb-8"
+          className="text-base md:text-lg lg:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Creative frontend developer crafting sleek, responsive web and app experiences.
-          Skilled in React, JavaScript, and modern UI/UX design principles.
-          Passionate about building fast, intuitive, and user-focused digital products.
+          Passionate frontend developer specializing in React, TypeScript, and modern web technologies.
+          Creating pixel-perfect, responsive interfaces with exceptional user experiences.
+          Dedicated to writing clean, maintainable code and staying current with industry best practices.
         </motion.p>
 
         <motion.div
