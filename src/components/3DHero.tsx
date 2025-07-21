@@ -50,7 +50,7 @@ const Hero3D: React.FC = () => {
                 transition={{ duration: 3, repeat: Infinity }}
                 className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent bg-[length:200%_200%]"
               >
-                Frontend Developer & UI/UX Designer
+                Frontend Developer
               </motion.span>
             </motion.div>
           </motion.div>

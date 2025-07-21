@@ -74,7 +74,7 @@ const InteractiveTimeline: React.FC = () => {
         
         {/* Content Card */}
         <motion.div
-          className={`relative w-5/12 ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'} group cursor-pointer`}
+          className={`relative w-full md:w-5/12 ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'} group cursor-pointer`}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={() => setSelectedExperience(experience)}
@@ -82,13 +82,13 @@ const InteractiveTimeline: React.FC = () => {
           {/* Glow effect */}
           <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-orange-500/20 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300" />
           
-          <div className="relative bg-zinc-900/90 p-6 rounded-xl border border-zinc-700/50 backdrop-blur-sm">
-            <div className="flex items-center justify-between mb-3">
+          <div className="relative bg-zinc-900/90 p-4 md:p-6 rounded-xl border border-zinc-700/50 backdrop-blur-sm overflow-hidden">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3 gap-2 md:gap-0">
               <div className="flex items-center gap-2">
                 <Building className="w-4 h-4 text-purple-500" />
-                <span className="text-sm text-gray-400">{experience.company}</span>
+                <span className="text-sm text-gray-400 break-words max-w-full">{experience.company}</span>
               </div>
-              <span className={`px-2 py-1 text-xs rounded-full ${
+              <span className={`px-2 py-1 text-xs rounded-full whitespace-nowrap ${
                 experience.type === 'full-time' ? 'bg-blue-500/20 text-blue-400' :
                 experience.type === 'freelance' ? 'bg-green-500/20 text-green-400' :
                 'bg-yellow-500/20 text-yellow-400'
@@ -97,22 +97,22 @@ const InteractiveTimeline: React.FC = () => {
               </span>
             </div>
 
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold text-white mb-2 break-words max-w-full">
               {experience.title}
             </h3>
 
-            <div className="flex items-center gap-4 text-sm text-gray-400 mb-3">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-2 md:gap-4 text-sm text-gray-400 mb-3">
               <div className="flex items-center gap-1">
                 <Calendar className="w-4 h-4" />
-                <span>{experience.period}</span>
+                <span className="break-words max-w-full">{experience.period}</span>
               </div>
               <div className="flex items-center gap-1">
                 <MapPin className="w-4 h-4" />
-                <span>{experience.location}</span>
+                <span className="break-words max-w-full">{experience.location}</span>
               </div>
             </div>
 
-            <p className="text-gray-300 text-sm line-clamp-2 mb-4">
+            <p className="text-gray-300 text-sm mb-4 break-words max-w-full">
               {experience.description}
             </p>
 
@@ -121,7 +121,7 @@ const InteractiveTimeline: React.FC = () => {
               {experience.technologies.slice(0, 3).map((tech, i) => (
                 <span
                   key={i}
-                  className="px-2 py-1 text-xs rounded-md bg-zinc-800/50 text-purple-400"
+                  className="px-2 py-1 text-xs rounded-md bg-zinc-800/50 text-purple-400 break-words max-w-full"
                 >
                   {tech}
                 </span>
@@ -136,7 +136,7 @@ const InteractiveTimeline: React.FC = () => {
 
           {/* Timeline Dot */}
           <motion.div
-            className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-zinc-900"
+            className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-zinc-900 hidden md:block"
             animate={isHovered ? { scale: 1.5 } : { scale: 1 }}
             transition={{ duration: 0.2 }}
           />
@@ -206,9 +206,20 @@ const InteractiveTimeline: React.FC = () => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-zinc-900/95 rounded-2xl border border-zinc-700/50 max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+              className="relative bg-zinc-900/95 rounded-2xl border border-zinc-700/50 max-w-3xl w-full max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Close X Button (inside card, always in corner) */}
+              <button
+                onClick={() => setSelectedExperience(null)}
+                aria-label="Close details"
+                className="absolute top-4 right-4 p-1 z-50 focus:outline-none"
+                type="button"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" className="w-5 h-5">
+                  <path stroke="#FFA500" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" d="M6 6l8 8m0-8l-8 8" />
+                </svg>
+              </button>
               <div className="p-8">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">
@@ -291,12 +302,6 @@ const InteractiveTimeline: React.FC = () => {
                   </div>
                 </div>
 
-                <button
-                  onClick={() => setSelectedExperience(null)}
-                  className="mt-8 px-6 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg transition-colors"
-                >
-                  Close
-                </button>
               </div>
             </motion.div>
           </motion.div>

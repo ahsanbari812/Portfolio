@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Github, ExternalLink, Play, Code, Eye, Zap, Star } from 'lucide-react';
+import { Github, ExternalLink, Play, Eye, Zap, Star } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -79,7 +79,7 @@ const AdvancedProjects: React.FC = () => {
       technologies: ['React', 'TypeScript', 'Chart.js', 'Redux Toolkit', 'Tailwind CSS'],
       githubLink: '#',
       liveLink: '#',
-      image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDYwMCA0MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJnR3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojOEI1Q0Y2O3N0b3Atb3BhY2l0eTowLjEiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojRUM0ODk5O3N0b3Atb3BhY2l0eTowLjEiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImNhcmRHcmFkaWVudCIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMxRjI5MzciLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMTExODI3Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICAKICA8IS0tIEJhY2tncm91bmQgZ3JhZGllbnQgLS0+CiAgPHJlY3Qgd2lkdGg9IjYwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9InVybCgjYmdHcmFkaWVudCkiLz4KICAKICA8IS0tIE1haW4gZGFzaGJvYXJkIGNhcmQgLS0+CiAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgcng9IjEyIiBmaWxsPSJ1cmwoI2NhcmRHcmFkaWVudCkiIHN0cm9rZT0iIzM3NDE1MSIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgCiAgPCEtLSBTdGF0cyBjYXJkcyAtLT4KICA8cmVjdCB4PSIxMDAiIHk9IjEwMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI2MCIgcng9IjgiIGZpbGw9IiM4QjVDRjYiLz4KICA8cmVjdCB4PSIyMjAiIHk9IjEwMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI2MCIgcng9IjgiIGZpbGw9IiNFQzQ4OTkiLz4KICA8cmVjdCB4PSIzNDAiIHk9IjEwMCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI2MCIgcng9IjgiIGZpbGw9IiNGNTlFQjAiLz4KICAKICA8IS0tIENoYXJ0cyBhbmQgZGF0YSAtLT4KICA8cmVjdCB4PSIxMDAiIHk9IjE4MCIgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxNDAiIHJ4PSI4IiBmaWxsPSIjMzc0MTUxIi8+CiAgPHJlY3QgeD0iMzYwIiB5PSIxODAiIHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiByeD0iOCIgZmlsbD0iIzM3NDE1MSIvPgogIAogIDwhLS0gQ2hhcnQgbGluZXMgLS0+CiAgPGxpbmUgeDE9IjEyMCIgeTE9IjI1MCIgeDI9IjE2MCIgeTI9IjIzMCIgc3Ryb2tlPSIjOEI1Q0Y2IiBzdHJva2Utd2lkdGg9IjIiLz4KICA8bGluZSB4MT0iMTYwIiB5MT0iMjMwIiB4Mj0iMjAwIiB5Mj0iMjUwIiBzdHJva2U9IiM4QjVDRjYiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxsaW5lIHgxPSIyMDAiIHkxPSIyNTAiIHgyPSIyNDAiIHkyPSIyMjAiIHN0cm9rZT0iIzhCNUNGNiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGxpbmUgeDE9IjI0MCIgeTE9IjIyMCIgeDI9IjI4MCIgeTI9IjI0MCIgc3Ryb2tlPSIjOEI1Q0Y2IiBzdHJva2Utd2lkdGg9IjIiLz4KICAKICA8IS0tIEJhciBjaGFydCAtLT4KICA8cmVjdCB4PSI0MDAiIHk9IjI0MCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRUM0ODk5Ii8+CiAgPHJlY3QgeD0iNDMwIiB5PSIyMjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI2MCIgZmlsbD0iI0VDNDg5OSIvPgogIDxyZWN0IHg9IjQ2MCIgeT0iMjAwIiB3aWR0aD0iMjAiIGhlaWdodD0iODAiIGZpbGw9IiNFQzQ4OTkiLz4KICA8cmVjdCB4PSI0OTAiIHk9IjI2MCIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjRUM0ODk5Ii8+CiAgCiAgPCEtLSBJY29ucyAtLT4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzAsIDEzMCkiPgogICAgPGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iOCIgZmlsbD0iI0ZGRkZGRiIvPgogICAgPHRleHQgeD0iMjAiIHk9IjE1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNGRkZGRkYiPjEyMDA8L3RleHQ+CiAgPC9nPgogIAogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI1MCwgMTMwKSI+CiAgICA8Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSI4IiBmaWxsPSIjRkZGRkZGIi8+CiAgICA8dGV4dCB4PSIyMCIgeT0iMTUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iI0ZGRkZGRiI+ODUwPC90ZXh0PgogIDwvZz4KICAKICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNzAsIDEzMCkiPgogICAgPGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iOCIgZmlsbD0iI0ZGRkZGRiIvPgogICAgPHRleHQgeD0iMjAiIHk9IjE1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNGRkZGRkYiPjYyMDwvdGV4dD4KICA8L2c+CiAgCiAgPCEtLSBGbG9hdGluZyBlbGVtZW50cyAtLT4KICA8Y2lyY2xlIGN4PSI4MCIgY3k9IjgwIiByPSIzIiBmaWxsPSIjOEI1Q0Y2IiBvcGFjaXR5PSIwLjMiLz4KICA8Y2lyY2xlIGN4PSI1MjAiIGN5PSIxMDAiIHI9IjIiIGZpbGw9IiNFQzQ4OTkiIG9wYWNpdHk9IjAuMyIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjM1MCIgcj0iMiIgZmlsbD0iI0Y1OUVCMCIgb3BhY2l0eT0iMC4zIi8+Cjwvc3ZnPgo=',
+      image: '/ecommerce-dashboard.svg',
       features: [
         'Real-time analytics and reporting',
         'Product catalog management',
@@ -156,17 +156,13 @@ const AdvancedProjects: React.FC = () => {
             <img 
               src={project.image} 
               alt={project.title}
-              className="w-full h-full object-cover"
+              className="w-full h-48 object-contain mx-auto block bg-transparent"
               style={{ zIndex: 10, position: 'relative' }}
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 target.style.display = 'none';
-                target.nextElementSibling?.classList.remove('hidden');
               }}
             />
-            <div className="absolute inset-0 bg-zinc-800 flex items-center justify-center hidden">
-              <Code className="w-16 h-16 text-zinc-600" />
-            </div>
             
 
             
@@ -174,13 +170,15 @@ const AdvancedProjects: React.FC = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: isHovered ? 1 : 0 }}
-              className="absolute inset-0 bg-black/60 flex items-center justify-center gap-4"
+              className="absolute inset-0 bg-black/60 flex items-center justify-center gap-4 z-20"
+              style={{ pointerEvents: isHovered ? 'auto' : 'none' }}
             >
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="p-3 rounded-full bg-purple-500 text-white"
+                className="p-3 rounded-full bg-purple-500 text-white shadow-lg hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
                 onClick={() => setSelectedProject(project)}
+                aria-label="View Details"
               >
                 <Eye className="w-5 h-5" />
               </motion.button>
@@ -191,7 +189,8 @@ const AdvancedProjects: React.FC = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="p-3 rounded-full bg-green-500 text-white"
+                  className="p-3 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
+                  aria-label="Live Demo"
                 >
                   <Play className="w-5 h-5" />
                 </motion.a>
@@ -349,7 +348,18 @@ const AdvancedProjects: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="p-8 border-b border-zinc-700/50">
+              <div className="relative p-8 border-b border-zinc-700/50">
+                {/* Close X Button */}
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  aria-label="Close details"
+                  className="absolute top-2 right-2 p-1 z-[100] focus:outline-none"
+                  type="button"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" className="w-5 h-5">
+                    <path stroke="#FFA500" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" d="M6 6l8 8m0-8l-8 8" />
+                  </svg>
+                </button>
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-3xl font-bold text-white">{selectedProject.title}</h3>
                   <div className="flex items-center gap-2">
