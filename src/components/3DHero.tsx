@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Github, Linkedin } from 'lucide-react';
+import { ArrowRight, Download, Github, Linkedin, Code } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero3D: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const navigate = useNavigate();
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -17,6 +20,25 @@ const Hero3D: React.FC = () => {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/20 to-zinc-800/20" />
       </div>
+
+      {/* Playground Slider Tab */}
+      <motion.div
+        className="fixed top-1/2 right-0 z-50"
+        style={{ transform: 'translateY(-50%)' }}
+        initial={{ x: 80, opacity: 0.7 }}
+        animate={{ x: hovered ? 0 : 80, opacity: hovered ? 1 : 0.7 }}
+        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <button
+          className="flex items-center gap-2 px-4 py-3 rounded-l-2xl shadow-xl bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-semibold backdrop-blur-lg border border-zinc-800 hover:scale-105 transition-all duration-300"
+          onClick={() => navigate('/playground')}
+        >
+          <Code className="w-5 h-5" />
+          <span className="hidden md:inline">Playground</span>
+        </button>
+      </motion.div>
 
       {/* Content Overlay */}
       <div className="relative z-10 flex items-center justify-center h-full">

@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 
 import CustomCursor from './components/CustomCursor';
 import LenisProvider from './components/LenisProvider';
+import { Routes, Route } from 'react-router-dom';
 
 // Lazy load components
 const Hero3D = lazy(() => import('./components/3DHero'));
@@ -14,6 +15,9 @@ const InteractiveTimeline = lazy(() => import('./components/InteractiveTimeline'
 const InteractiveSkills = lazy(() => import('./components/InteractiveSkills'));
 const AdvancedProjects = lazy(() => import('./components/AdvancedProjects'));
 const AdvancedContact = lazy(() => import('./components/AdvancedContact'));
+
+// Placeholder for Playground (to be implemented)
+const Playground = React.lazy(() => import('./components/Playground'));
 
 // Loading component
 const LoadingFallback = () => (
@@ -45,27 +49,36 @@ const App: React.FC = () => {
           <Navbar />
           
           <main className="w-full overflow-x-hidden">
-            <Suspense fallback={<LoadingFallback />}>
-              <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-                <Hero3D />
-              </section>
-              
-              <section id="experience" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-                <InteractiveTimeline />
-              </section>
-              
-              <section id="skills" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-                <InteractiveSkills />
-              </section>
-              
-              <section id="projects" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-                <AdvancedProjects />
-              </section>
-              
-              <section id="contact" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-                <AdvancedContact />
-              </section>
-            </Suspense>
+            <Routes>
+              <Route path="/" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+                    <Hero3D />
+                  </section>
+                  
+                  <section id="experience" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+                    <InteractiveTimeline />
+                  </section>
+                  
+                  <section id="skills" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+                    <InteractiveSkills />
+                  </section>
+                  
+                  <section id="projects" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+                    <AdvancedProjects />
+                  </section>
+                  
+                  <section id="contact" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+                    <AdvancedContact />
+                  </section>
+                </Suspense>
+              } />
+              <Route path="/playground" element={
+                <Suspense fallback={<LoadingFallback />}>
+                  <Playground />
+                </Suspense>
+              } />
+            </Routes>
           </main>
 
           <Footer />

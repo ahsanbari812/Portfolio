@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [activeLink, setActiveLink] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -39,6 +42,21 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Smooth scroll after navigation
+  useEffect(() => {
+    if (location.state && location.state.scrollTo) {
+      const id = location.state.scrollTo;
+      setTimeout(() => {
+        const el = document.querySelector(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          setActiveLink(id.substring(1));
+        }
+      }, 100); // Wait for DOM to render
+    }
+    // eslint-disable-next-line
+  }, [location]);
+
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -55,10 +73,12 @@ const Navbar: React.FC = () => {
             className="text-lg font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent"
             onClick={(e) => {
               e.preventDefault();
-              document.querySelector('#home')?.scrollIntoView({
-                behavior: 'smooth'
-              });
-              setActiveLink('home');
+              if (location.pathname !== '/') {
+                navigate('/', { state: { scrollTo: '#home' } });
+              } else {
+                document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth' });
+                setActiveLink('home');
+              }
             }}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -73,10 +93,14 @@ const Navbar: React.FC = () => {
                   href={href}
                   onClick={(e) => {
                     e.preventDefault();
-                    document.querySelector(href)?.scrollIntoView({
-                      behavior: 'smooth'
-                    });
-                    setActiveLink(href.substring(1));
+                    if (location.pathname !== '/') {
+                      navigate('/', { state: { scrollTo: href } });
+                    } else {
+                      document.querySelector(href)?.scrollIntoView({
+                        behavior: 'smooth'
+                      });
+                      setActiveLink(href.substring(1));
+                    }
                   }}
                   className={`text-sm font-medium relative py-2 px-1 transition-colors hover:text-white ${
                     activeLink === href.substring(1) ? 'text-white' : 'text-gray-400'
