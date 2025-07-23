@@ -63,7 +63,7 @@ const COMPONENTS = [
 const Playground: React.FC = () => {
   // General
   const [selectedComponent, setSelectedComponent] = useState('button');
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode] = useState(true);
 
   // Button state
   const [btnLabel, setBtnLabel] = useState('Click Me');
